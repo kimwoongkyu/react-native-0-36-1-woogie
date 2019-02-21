@@ -28,19 +28,19 @@ class JObjectWrapper<jqpl> : public JObjectWrapper<jobject> {
 
   void markerStart(int markerId, int instanceKey, long timestamp) {
     static auto markerStartMethod =
-      qplClass()->getMethod<void(int32_t, int32_t, int64_t)>("markerStart");
+      qplClass()->getMethod<void(int32_t, int32_t, jlong)>("markerStart");
     markerStartMethod(this_, markerId, instanceKey, timestamp);
   }
 
   void markerEnd(int markerId, int instanceKey, short actionId, long timestamp) {
     static auto markerEndMethod =
-      qplClass()->getMethod<void(int32_t, int32_t, int16_t, int64_t)>("markerEnd");
+      qplClass()->getMethod<void(int32_t, int32_t, int16_t, jlong)>("markerEnd");
     markerEndMethod(this_, markerId, instanceKey, actionId, timestamp);
   }
 
   void markerNote(int markerId, int instanceKey, short actionId, long timestamp) {
     static auto markerNoteMethod =
-      qplClass()->getMethod<void(int32_t, int32_t, int16_t, int64_t)>("markerNote");
+      qplClass()->getMethod<void(int32_t, int32_t, int16_t, jlong)>("markerNote");
     markerNoteMethod(this_, markerId, instanceKey, actionId, timestamp);
   }
 
@@ -52,7 +52,7 @@ class JObjectWrapper<jqpl> : public JObjectWrapper<jobject> {
 
   int64_t currentMonotonicTimestamp() {
     static auto currentTimestampMethod =
-      qplClass()->getMethod<int64_t()>("currentMonotonicTimestamp");
+      qplClass()->getMethod<jlong()>("currentMonotonicTimestamp");
     return currentTimestampMethod(this_);
   }
 

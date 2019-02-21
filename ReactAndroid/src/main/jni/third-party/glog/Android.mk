@@ -6,7 +6,6 @@ LOCAL_SRC_FILES := \
   glog-0.3.3/src/demangle.cc \
   glog-0.3.3/src/logging.cc \
   glog-0.3.3/src/raw_logging.cc \
-  glog-0.3.3/src/signalhandler.cc \
   glog-0.3.3/src/symbolize.cc \
   glog-0.3.3/src/utilities.cc \
   glog-0.3.3/src/vlog_is_on.cc

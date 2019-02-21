@@ -44,16 +44,16 @@ task prepareBoost(dependsOn: boostPath ? [] : [downloadBoost], type: Copy) {
 }
 
 task downloadDoubleConversion(dependsOn: createNativeDepsDirectories, type: Download) {
-    src 'https://github.com/google/double-conversion/archive/v1.1.1.tar.gz'
+    src 'https://github.com/google/double-conversion/archive/v1.1.3.tar.gz'
     onlyIfNewer true
     overwrite false
-    dest new File(downloadsDir, 'double-conversion-1.1.1.tar.gz')
+    dest new File(downloadsDir, 'double-conversion-1.1.3.tar.gz')
 }
 
 task prepareDoubleConversion(dependsOn: downloadDoubleConversion, type: Copy) {
     from tarTree(downloadDoubleConversion.dest)
     from 'src/main/jni/third-party/double-conversion/Android.mk'
-    include 'double-conversion-1.1.1/src/**/*', 'Android.mk'
+    include 'double-conversion-1.1.3/src/**/*', 'Android.mk'
     filesMatching('*/src/**/*', {fname -> fname.path = "double-conversion/${fname.name}"})
     includeEmptyDirs = false
     into "$thirdPartyNdkDir/double-conversion"
@@ -278,7 +278,8 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp-urlconnection:3.4.1'
     compile 'com.squareup.okhttp3:okhttp-ws:3.4.1'
     compile 'com.squareup.okio:okio:1.9.0'
-    compile 'org.webkit:android-jsc:r174650'
+    //compile 'org.webkit:android-jsc:r174650'
+    compile project(':android-jsc')
 
     testCompile "junit:junit:${JUNIT_VERSION}"
     testCompile "org.powermock:powermock-api-mockito:${POWERMOCK_VERSION}"

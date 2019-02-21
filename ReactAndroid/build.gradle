@@ -157,7 +157,7 @@ def findNdkBuildFullPath() {
         def ndkDir = System.getenv('ANDROID_NDK')
         return new File(ndkDir, getNdkBuildName()).getAbsolutePath()
     }
-    def ndkDir = "/Users/ibiz/Library/Android/ndk"
+    def ndkDir = LOCAL_NDK_DIR
     if (ndkDir) {
         return new File(ndkDir, getNdkBuildName()).getAbsolutePath()
     }
